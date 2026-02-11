@@ -19,9 +19,6 @@ This extension injects a **Favorites** section at the top of GitHub's reviewer d
 - **Favorites section** appears at the top of the dropdown, above Suggestions
 - **One click to assign** — click a favorite to check/uncheck them as a reviewer
 - **Synced across devices** via Chrome's sync storage
-- **Alphabetically sorted** favorites
-- **Manage from popup** — click the extension icon to view/remove favorites
-- **Zero config** — just install and start starring
 
 ## Install
 
