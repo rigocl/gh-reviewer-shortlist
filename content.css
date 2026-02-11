@@ -1,0 +1,54 @@
+.ghrs-star-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  color: var(--color-scale-gray-4, #848d97);
+  line-height: 1;
+  opacity: 0.5;
+  transition: opacity 0.15s, color 0.15s;
+  z-index: 1;
+}
+
+.ghrs-star-btn svg {
+  pointer-events: none;
+}
+
+.ghrs-star-btn:hover {
+  opacity: 1;
+  color: var(--color-scale-yellow-3, #d29922);
+}
+
+.select-menu-item:hover .ghrs-star-btn {
+  opacity: 0.8;
+}
+
+.ghrs-star-btn.ghrs-starred {
+  color: var(--color-scale-yellow-3, #d29922);
+  opacity: 0.9;
+}
+
+.ghrs-shortlist-divider {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ghrs-shortlist-divider::before {
+  content: "\2B50";
+  font-size: 12px;
+}
+
+.ghrs-shortlist-item {
+  background-color: var(--color-canvas-subtle, #f6f8fa);
+}
+
+.ghrs-shortlist-item--unavailable {
+  opacity: 0.45;
+  pointer-events: none;
+}
