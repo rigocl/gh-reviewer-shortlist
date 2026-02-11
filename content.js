@@ -6,6 +6,14 @@
   let storageMutex = Promise.resolve();
   let rebuildGeneration = 0;
 
+  function isExtensionValid() {
+    try {
+      return !!(chrome && chrome.runtime && chrome.runtime.id);
+    } catch {
+      return false;
+    }
+  }
+
   function withStorageLock(fn) {
     storageMutex = storageMutex.then(fn, fn);
     return storageMutex;
@@ -13,6 +21,7 @@
 
   function getShortlist() {
     return new Promise((resolve) => {
+      if (!isExtensionValid()) return resolve([]);
       chrome.storage.sync.get(STORAGE_KEY, (data) => {
         if (chrome.runtime.lastError) return resolve([]);
         const list = data[STORAGE_KEY];
@@ -24,6 +33,7 @@
 
   function saveShortlist(list) {
     return new Promise((resolve) => {
+      if (!isExtensionValid()) return resolve();
       chrome.storage.sync.set({ [STORAGE_KEY]: list }, () => {
         if (chrome.runtime.lastError) console.warn("ghrs: storage write failed", chrome.runtime.lastError);
         resolve();
